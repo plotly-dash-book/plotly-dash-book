@@ -1,0 +1,7 @@
+jupyter
+jupyterlab
+plotly
+plotly_express
+dash
+dash-daq
+dash-cytoscape
