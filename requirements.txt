@@ -1,7 +1,12 @@
 jupyter
 jupyterlab
-plotly
-plotly_express
-dash
-dash-daq
-dash-cytoscape
+pandas
+plotly==4.5.0
+plotly_express==0.4.1
+dash==1.7.0
+dash-daq==0.3.0
+dash-bio==0.4.5
+dash-canvas==0.1.0
+dash-cytoscape==0.1.1
+networkx==2.4
+jupyterlab-dash
