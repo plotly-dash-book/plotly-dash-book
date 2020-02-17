@@ -9,4 +9,4 @@ dash-bio==0.4.5
 dash-canvas==0.1.0
 dash-cytoscape==0.1.1
 networkx==2.4
-jupyterlab-dash
+# jupyterlab-dash
