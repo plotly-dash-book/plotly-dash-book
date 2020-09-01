@@ -1,5 +1,5 @@
 import dash
-import dash_core_components as dcc 
+import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
@@ -12,14 +12,14 @@ app.layout = html.Div(
         # valueに初期値0を設定
         dcc.Slider(id="callback-input", value=0),
     ],
-    style={"textAlign": "center", "width":"60%", "margin": "auto"},
+    style={"textAlign": "center", "width": "60%", "margin": "auto"},
 )
 
 # ➋ コールバック
 @app.callback(
-    # ➌ コールバック関数の戻り値の出力先を指定
+    # ➌ 出力項目を指定。ID名、属性名を渡す
     Output("callback-output", "children"),
-    # ➍ コールバック関数を呼び出すコンポーネント属性の指定
+    # ➍ 入力項目を指定。ID名、属性名を渡す
     [Input("callback-input", "value")],
 )
 # ➎ コールバック関数
