@@ -17,9 +17,10 @@ app.layout = html.Div([DashCanvas(id="my_canvas"), html.Div(id="my_callback")])
     [Input("my_canvas", "json_data")],
 )
 def show_json_data(json_data):
-    if json_data is None:  # ➍ json_dataがない場合コールバックを更新しない
-        dash.exceptions.PreventUpdate
-    return json.dumps(json_data)  # ➎ json_data存在する場合、返り値とする
+    if json_data: # ➍ json_data存在する場合、返り値とする
+        return json.dumps(json_data)  
+    raise dash.exceptions.PreventUpdate # ➎ データがない場合コールバックを更新しない
+    
 
 
 if __name__ == "__main__":

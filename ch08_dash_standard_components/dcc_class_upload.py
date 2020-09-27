@@ -83,7 +83,7 @@ def update_contents(contents, filename):
         try:
             if filename.endswith('.csv'):
                 df = pd.read_csv(io.StringIO(decoded.decode("utf-8")))
-            elif ".xls" in filename:
+            elif filename.endswith(".xls") or filename.endswith(".xlsx"):
                 df = pd.read_excel(io.BytesIO(decoded))
         except Exception as e:
             print(e)
@@ -139,4 +139,4 @@ def update_graph(columns, rows, selected_countries):
 
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()

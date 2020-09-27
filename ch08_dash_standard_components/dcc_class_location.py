@@ -9,7 +9,7 @@ app.layout = html.Div(
     [
         # Locationコンポーネントの設置
         dcc.Location(id="my_location"),
-        # コールバックの出力先となる2つのDivクラス
+        # コールバックの出力先となる4つのDivクラス
         html.Div(
             id="show_location1", style={"fontSize": 30, "textAlign": "center"}
         ),
@@ -26,16 +26,16 @@ app.layout = html.Div(
         html.Br(),
         dcc.Link("/test", href="/test"),
         html.Br(),
-        dcc.Link("/test2", href="/test?what"),
+        dcc.Link("/test?what", href="/test?what"),
         html.Br(),
-        dcc.Link("/test3", href="/test?what#dashhash"),
+        dcc.Link("/test?what#dashhash", href="/test?what#dashhash"),
         html.Br(),
         dcc.Link("home", href="/"),
     ],
     style={"fontSize": 30, "textAlign": "center"},
 )
 
-# ➊ URLを2つの ``Div`` クラスに返すコールバック
+# ➊ URLを4つの ``Div`` クラスに返すコールバック
 @app.callback(
     [
         Output("show_location1", "children"),
