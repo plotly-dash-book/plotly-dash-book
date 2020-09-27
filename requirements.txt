@@ -1,12 +1,13 @@
-jupyter
+notebook>=5.3
+ipywidgets>=7.2
 jupyterlab
 pandas
-plotly==4.5.0
-plotly_express==0.4.1
-dash==1.7.0
-dash-daq==0.3.0
-dash-bio==0.4.5
+plotly==4.10.0
+dash==1.16.2
+dash-daq==0.5.0
+dash-bio==0.4.8
 dash-canvas==0.1.0
+dash-auth==1.4.1
 dash-cytoscape==0.1.1
 networkx==2.4
-# jupyterlab-dash
+jupyter-dash==0.3.1
