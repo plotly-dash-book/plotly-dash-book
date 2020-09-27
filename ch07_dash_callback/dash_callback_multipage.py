@@ -12,9 +12,9 @@ app = dash.Dash(__name__)
 # ➊ レイアウト
 app.layout = html.Div(
     [
-        # ➍ Locationの設置
+        # ➍ URLを生成
         dcc.Location(id="my_location"),
-        # ➎ コンテンツの表示場所
+        # ➎ コンテンツの表示
         html.Div(
             id="show_location",
             style={"fontSize": 30, "textAlign": "center", "height": 400},
@@ -31,14 +31,17 @@ app.layout = html.Div(
 )
 
 # ➋ ページごとのコンテンツの作成
+# home(/)のコンテンツ
 home = html.H1("Irisデータ")
-# グラフ
+
+# graph(/graph)のコンテンツ
 graph = dcc.Graph(
     figure=px.scatter(
         iris, x="sepal_width", y="sepal_length", color="species", title="Irisグラフ"
     )
 )
-# テーブル
+
+# table(/table)のコンテンツ
 table = dcc.Graph(
     figure=go.Figure(
         data=go.Table(

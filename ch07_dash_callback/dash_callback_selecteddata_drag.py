@@ -26,15 +26,32 @@ app.layout = html.Div(
                 template={"layout": {"dragmode": "select"}},
             ),
         ),
-        html.P(id="hoverdata-p", style={"fontSize": 32, "textAlign": "center"}),
+        html.Div(
+            [
+                dcc.Graph(id="graph1", className="six columns"),
+                dcc.Graph(id="graph2", className="six columns"),
+            ]
+        ),
     ],
     style={"width": "80%", "margin": "auto", "textAlign": "center"},
 )
 
 
-@app.callback(Output("hoverdata-p", "children"), [Input("gapminder-g", "selectedData")])
+@app.callback(
+    Output("graph1", "figure"),
+    Output("graph2", "figure"),
+    Input("gapminder-g", "selectedData"),
+)
 def show_hover_data(selectedData):
-    return json.dumps(selectedData)
+    if selectedData:
+        selected_countries = [data["hovertext"] for data in selectedData["points"]]
+        selected_df = gapminder[gapminder["country"].isin(selected_countries)]
+        fig1 = px.line(selected_df, x="year", y="pop", color="country", title="各国の人口")
+        fig2 = px.line(
+            selected_df, x="year", y="lifeExp", color="country", title="各国の平均寿命"
+        )
+        return fig1, fig2
+    raise dash.exceptions.PreventUpdate
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ app.layout = html.Div(
     [
         html.H1(id="callback-output"),
         # valueに初期値0を設定
-        dcc.Slider(id="callback-input", value=0),
+        dcc.Slider(id="callback-input", value=0, updatemode="drag"),
     ],
     style={"textAlign": "center", "width": "60%", "margin": "auto"},
 )
