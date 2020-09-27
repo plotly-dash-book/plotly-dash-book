@@ -12,7 +12,7 @@ app = dash.Dash(__name__)
 # レイアウトの作成
 app.layout = html.Div(
     [
-        html.Button("PUSH ME", id="my_button"), # 新たなレイアウトを追加するボタン
+        html.Button("PUSH ME", id="my_button"),  # 新たなレイアウトを追加するボタン
         html.Div(id="my_div", children=[]),  # ドロップダウンを追加するDiv
         html.Div(id="my_select"),  # 作成したグラフを描画するDiv
     ]
@@ -46,8 +46,11 @@ def update_layout(n_clicks, children):
     prevent_initial_call=True,
 )
 def update_graph(selected_values):
-    selected_countries = gapminder[gapminder["country"].isin(selected_values)] # ➎
+    selected_countries = gapminder[gapminder["country"].isin(selected_values)]  # ➎
 
-    return dcc.Graph(figure=px.line(selected_countries, x="year", y="lifeExp", color="country")) # ➏
+    return dcc.Graph(
+        figure=px.line(selected_countries, x="year", y="lifeExp", color="country")
+    )  # ➏
+
 
 app.run_server(debug=True)

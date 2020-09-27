@@ -24,8 +24,7 @@ app.layout = html.Div(
         ),
         # ➎ グラフを作成する
         dcc.Graph(
-            figure=px.bar(x=[1, 2, 3, 4, 5], y=[1, 2, 3, 4, 5]),
-            style=core_style,
+            figure=px.bar(x=[1, 2, 3, 4, 5], y=[1, 2, 3, 4, 5]), style=core_style,
         ),
     ]
 )

@@ -50,8 +50,7 @@ def update_layout(n_clicks, children):
 
 # コールバック2
 @app.callback(
-        Output({"type": "my_graph", "index": MATCH}, "figure"),
-
+    Output({"type": "my_graph", "index": MATCH}, "figure"),
     [
         Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"),
         Input({"type": "my_dropdown2", "index": MATCH}, "value"),
@@ -61,6 +60,7 @@ def update_graph(selected_value, selected_col):
     num = len(selected_value) + 1  # ➋
     countries = gapminder.country.unique()[:num]  # ➌
     selected_countries = gapminder[gapminder["country"].isin(countries)]  # ➍
-    return px.line(selected_countries, x="year", y=selected_col, color="country") #➎
+    return px.line(selected_countries, x="year", y=selected_col, color="country")  # ➎
+
 
 app.run_server(debug=True)

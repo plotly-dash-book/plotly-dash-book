@@ -7,14 +7,14 @@ external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-# ➊ レイアウト 各コンポーネントにID名を付ける
+# ➊ レイアウト 各コンポーネントにIDを付ける
 app.layout = html.Div(
     [
         # コールバックの返り値を表示する
         html.H1(id="head-title"),
         # 文字を入力するテキストエリア
         dcc.Textarea(
-            id="my-input",
+            id="my-text-state",
             value="initial value",  # 初期値の設定
             style={"width": "80%", "fontSize": 30},
         ),

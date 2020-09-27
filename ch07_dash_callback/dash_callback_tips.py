@@ -24,7 +24,8 @@ app.layout = html.Div(
                         dcc.Dropdown(
                             id="day_selector",
                             options=[
-                                {"value": dow, "label": dow} for dow in tips.day.unique()
+                                {"value": dow, "label": dow}
+                                for dow in tips.day.unique()
                             ],
                             multi=True,
                             value=["Thur", "Fri", "Sat", "Sun"],
@@ -51,9 +52,10 @@ app.layout = html.Div(
             style={"padding": "2%", "margin": "auto"},
         ),
         # ➏ グラフの表示場所
-        html.Div([
-        dcc.Graph(id="app_graph", style={'padding': '3%'}),
-        ], style={"padding": '3%'}),
+        html.Div(
+            [dcc.Graph(id="app_graph", style={"padding": "3%"}),],
+            style={"padding": "3%"},
+        ),
     ]
 )
 
@@ -69,7 +71,9 @@ def update_graph(selected_days, selected_graph):
     # ➒ 選択されたグラフの種類により、タイトル表示データとグラフを作成
     if selected_graph == "scatter":
         title = "テーブル毎データ（散布図）"
-        figure = px.scatter(selected_df, x="total_bill", y="tip", color="smoker", height=600)
+        figure = px.scatter(
+            selected_df, x="total_bill", y="tip", color="smoker", height=600
+        )
     else:
         title = ("曜日当たり売り上げ（棒グラフ）",)
         figure = px.bar(selected_df, x="day", y="total_bill", height=600)
