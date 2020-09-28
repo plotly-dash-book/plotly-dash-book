@@ -3,14 +3,14 @@ import dash_core_components as dcc
 import plotly.express as px
 
 gapminder = px.data.gapminder()
-gapminder = gapminder[gapminder["year"] == 2007]
+gapminder2007 = gapminder[gapminder["year"] == 2007]
 
 app = dash.Dash(__name__)
 
 app.layout = dcc.Graph(
     # ➊ figureに直接figureを渡す
     figure=px.scatter(
-        gapminder,  # 利用するデータフレームの設定
+        gapminder2007,  # 利用するデータフレームの設定
         x="gdpPercap",  # x軸
         y="pop",  # y軸
         size="lifeExp",  # マーカサイズ

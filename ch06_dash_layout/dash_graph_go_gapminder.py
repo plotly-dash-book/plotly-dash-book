@@ -4,19 +4,19 @@ import plotly
 import plotly.graph_objects as go
 
 gapminder = plotly.data.gapminder()
-gapminder = gapminder[gapminder["year"] == 2007]
+gapminder2007 = gapminder[gapminder["year"] == 2007]
 
 # ➊ figureの作成
 fig = go.Figure()
-for c in gapminder.continent.unique():
+for c in gapminder2007.continent.unique():
     fig.add_trace(
         go.Scatter(
-            x=gapminder[gapminder["continent"] == c]["gdpPercap"],
-            y=gapminder[gapminder["continent"] == c]["pop"],
+            x=gapminder2007[gapminder2007["continent"] == c]["gdpPercap"],
+            y=gapminder2007[gapminder2007["continent"] == c]["pop"],
             name=c,
             mode="markers",
-            marker={"size": gapminder[gapminder["continent"] == c]["lifeExp"] / 2},
-            text=gapminder[gapminder["continent"] == c]["country"],
+            marker={"size": gapminder2007[gapminder2007["continent"] == c]["lifeExp"] / 2},
+            text=gapminder2007[gapminder2007["continent"] == c]["country"],
         )
     )
 fig.update_layout(
