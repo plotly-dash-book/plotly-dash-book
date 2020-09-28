@@ -36,14 +36,8 @@ node_id_input = dcc.Input(
 )
 
 # デフォルトのスタイルシート
-default_stylesheets = [
-    {
-        "selector": "node",
-        "style": {
-            "content": "data(id)",
-            "fontSize": "25px",
-        },
-    },
+default_stylesheet = [
+    {"selector": "node", "style": {"content": "data(id)", "font-size": "25px",},},
     {
         "selector": "edge",
         "style": {
@@ -55,13 +49,14 @@ default_stylesheets = [
     },
 ]
 
+
 # ネットワーク図の用意
 cyto_compo = cyto.Cytoscape(
     id="cyto-compo",
     layout={"name": "breadthfirst", "roots": "#0", "animate": True},
     style={"width": "400px", "height": "400px"},
     elements=elements,
-    stylesheet=default_stylesheets,
+    stylesheet=default_stylesheet,
 )
 
 app.layout = html.Div([node_id_input, cyto_compo])

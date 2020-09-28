@@ -36,14 +36,8 @@ node_id_input = dcc.Input(
 )
 
 # デフォルトのスタイルシート
-default_stylesheets = [
-    {
-        "selector": "node",
-        "style": {
-            "content": "data(id)",
-            "font-size": "25px",
-        },
-    },
+default_stylesheet = [
+    {"selector": "node", "style": {"content": "data(id)", "font-size": "25px",},},
     {
         "selector": "edge",
         "style": {
@@ -61,7 +55,7 @@ cyto_compo = cyto.Cytoscape(
     layout={"name": "breadthfirst", "roots": "#0", "animate": True},
     style={"width": "400px", "height": "400px"},
     elements=elements,
-    stylesheet=default_stylesheets,
+    stylesheet=default_stylesheet,
 )
 
 # ❶ 削除ボタンを追加
