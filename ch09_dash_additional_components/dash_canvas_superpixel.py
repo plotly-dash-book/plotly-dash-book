@@ -42,27 +42,27 @@ app.layout = html.Div(
 )
 def remove_background(json_data, image):
     if json_data:
+        # ➊ imageがある場合、それを基に画像のnumpy.ndarrayに変換する
+        if image:
+            image_array = image_string_to_PILImage(image)
+            image_array = np.asarray(image_array)
         # imageがない場合、imreadで画像を読み込む
-        if not image:
-            im = io.imread(image_path)
-        # ➊ imageがある場合、それを基に画像のアレイを作成する
         else:
-            im = image_string_to_PILImage(image)
-            im = np.asarray(im)
+            image_array = io.imread(image_path)
         # ➋ 画像のアレイのサイズを変数shapeに代入する
-        shape = im.shape[:2]
+        shape = image_array.shape[:2]
 
-        # ➌ 書き込みのjsonデータをパースし、変数maskに代入する
+        # ➌ 書き込みのJSONデータをパースし、ブール値に変換する
         try:
             mask = parse_jsonstring(json_data, shape=shape)
         except IndexError:
             raise PreventUpdate
 
         if mask.sum() > 0:  # ➍
-            seg = superpixel_color_segmentation(im, mask)
+            seg = superpixel_color_segmentation(image_array, mask)
         else:
             seg = np.ones(shape)
-        filled_image = np.copy(im)
+        filled_image = np.copy(image_array)
         filled_image[np.logical_not(seg)] = np.array([255, 255, 255], dtype="uint8")  # ➎
         return array_to_data_url(filled_image)  # ➏
 
