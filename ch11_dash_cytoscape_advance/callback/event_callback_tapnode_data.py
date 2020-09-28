@@ -43,21 +43,21 @@ cyto_compo = cyto.Cytoscape(
     stylesheet=default_stylesheets,
 )
 
-# タップしたノードの情報を表示するpタグ
+# クリックしたノードの情報を表示する<p>タグ
 pre_compo = html.Pre(
     id="pre-compo", style={"background-color": "#CCCCCC", "font-size": "20px"}
 )
 
 app.layout = html.Div([pre_compo, cyto_compo])
 
-# タップしたノードのデータ辞書を表示するコールバック関数
+# クリックしたノードのデータ辞書を表示するコールバック関数
 @app.callback(
-    Output("pre-compo", "children"),  # ❷ pタグに出力する
-    [Input("cyto-compo", "tapNodeData")],  # ❸ タップしたノードのデータ辞書を受け取る
+    Output("pre-compo", "children"),  # ❷ <p>タグに出力する
+    [Input("cyto-compo", "tapNodeData")],  # ❸ クリックしたノードのデータ辞書を受け取る
 )
 def show_tapped_node_data(node_data_dict):
     if not node_data_dict:
-        return "ノードをタップしてください"
+        return "ノードをクリックしてください"
     # ❹ 受け取ったノードのデータ辞書の中身をそのまま返す
     return str(node_data_dict)
 
