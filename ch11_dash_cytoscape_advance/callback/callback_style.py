@@ -71,9 +71,9 @@ def update_style(node_id):
 
     # ❸ デフォルトのスタイルに新しいスタイルを追加する
     # ※ default_stylesheetはグローバル変数なので、コールバック関数内で変更しないこと
-    new_stylesheets = default_stylesheet + [new_style]
+    new_stylesheet = default_stylesheet + [new_style]
 
-    return new_stylesheets
+    return new_stylesheet
 
 
 if __name__ == "__main__":
