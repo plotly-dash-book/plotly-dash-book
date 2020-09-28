@@ -25,7 +25,7 @@ elements = [
 
 cyto_compo = cyto.Cytoscape(
     id="dash_cyto_compound-node",
-    layout={"name": "grid", "columns": 2, "rows": 2},
+    layout={"name": "circle"},
     style={"width": "350px", "height": "450px"},
     elements=elements,
     stylesheet=[

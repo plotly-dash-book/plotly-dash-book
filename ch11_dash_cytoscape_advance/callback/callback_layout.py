@@ -26,7 +26,7 @@ elements = default_nodes + default_edges
 
 # ルートとなるノードIDを入力するボックス
 bfs_roots_input = dcc.Input(
-    style={"font-size": "25px"},
+    style={"fontSize": "25px"},
     id="input-compo",
     placeholder=0,
     type="number",

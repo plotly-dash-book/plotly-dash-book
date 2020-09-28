@@ -26,7 +26,7 @@ elements = default_nodes + default_edges
 
 # ノードIDを入力するボックス
 node_id_input = dcc.Input(
-    style={"font-size": "25px"},
+    style={"fontSize": "25px"},
     id="input-compo",
     placeholder=0,
     type="number",
@@ -71,9 +71,9 @@ def update_style(node_id):
 
     # ❸ デフォルトのスタイルに新しいスタイルを追加する
     # ※ default_stylesheetはグローバル変数なので、コールバック関数内で変更しないこと
-    new_stylesheets = default_stylesheet + [new_style]
+    new_stylesheet = default_stylesheet + [new_style]
 
-    return new_stylesheets
+    return new_stylesheet
 
 
 if __name__ == "__main__":

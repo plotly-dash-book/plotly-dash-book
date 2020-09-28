@@ -22,7 +22,7 @@ elements = [
 ]
 
 # デフォルトのスタイルシート
-default_stylesheets = [
+default_stylesheet = [
     {"selector": "node", "style": {"content": "data(id)", "font-size": "25px",},},
     {
         "selector": "edge",
@@ -40,12 +40,12 @@ cyto_compo = cyto.Cytoscape(
     style={"width": "400px", "height": "400px"},
     layout={"name": "breadthfirst", "roots": "#A", "animate": True},
     elements=elements,
-    stylesheet=default_stylesheets,
+    stylesheet=default_stylesheet,
 )
 
 # クリックしたノードの情報を表示する<p>タグ
 pre_compo = html.Pre(
-    id="pre-compo", style={"background-color": "#CCCCCC", "font-size": "20px"}
+    id="pre-compo", style={"backgroundColor": "#CCCCCC", "fontSize": "20px"}
 )
 
 app.layout = html.Div([pre_compo, cyto_compo])

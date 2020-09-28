@@ -26,7 +26,7 @@ elements = default_nodes + default_edges
 
 # ノードIDを入力するボックス
 node_id_input = dcc.Input(
-    style={"font-size": "25px"},
+    style={"fontSize": "25px"},
     id="node-id-input-compo",
     placeholder=0,
     type="number",
@@ -36,15 +36,8 @@ node_id_input = dcc.Input(
 )
 
 # デフォルトのスタイルシート
-default_stylesheets = [
-    {
-        "selector": "node",
-        "style": {
-            "content": "data(id)",
-            "backgroujnd-color": "red",
-            "font-size": "25px",
-        },
-    },
+default_stylesheet = [
+    {"selector": "node", "style": {"content": "data(id)", "font-size": "25px",},},
     {
         "selector": "edge",
         "style": {
@@ -56,13 +49,14 @@ default_stylesheets = [
     },
 ]
 
+
 # ネットワーク図の用意
 cyto_compo = cyto.Cytoscape(
     id="cyto-compo",
     layout={"name": "breadthfirst", "roots": "#0", "animate": True},
     style={"width": "400px", "height": "400px"},
     elements=elements,
-    stylesheet=default_stylesheets,
+    stylesheet=default_stylesheet,
 )
 
 app.layout = html.Div([node_id_input, cyto_compo])
