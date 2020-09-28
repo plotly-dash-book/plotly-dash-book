@@ -49,19 +49,13 @@ app.layout = html.Div(
                     export_format="csv",
                 )
             ],
-            style={
-                "display": "inline-block",
-                "marginRight": "5%",
-                "width": "25%",
-            },
+            style={"display": "inline-block", "marginRight": "5%", "width": "25%",},
         ),
     ]
 )
 
 # ➊ 線色を更新するコールバック
-@app.callback(
-    Output("first-image", "lineColor"), [Input("color-radio", "value")]
-)
+@app.callback(Output("first-image", "lineColor"), [Input("color-radio", "value")])
 def update_color(selected_color):
     return selected_color
 

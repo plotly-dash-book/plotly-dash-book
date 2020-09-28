@@ -1,11 +1,9 @@
-import random 
-
 import dash
 import dash_core_components as dcc
 import dash_daq as daq
 import dash_html_components as html
 from dash.dependencies import Input, Output
-
+import numpy as np
 
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
@@ -30,16 +28,14 @@ app.layout = html.Div(
         html.Div(
             [
                 html.Div(
-                    [html.H2("ゲージ"), daq.Gauge(id="guage1")],
-                    className="three columns",
+                    [html.H2("ゲージ"), daq.Gauge(id="guage1")], className="three columns",
                 ),
                 html.Div(
                     [html.H2("グラデュエートバー"), daq.GraduatedBar(id="guage2")],
                     className="three columns",
                 ),
                 html.Div(
-                    [html.H2("タンク"), daq.Tank(id="guage3")],
-                    className="three columns",
+                    [html.H2("タンク"), daq.Tank(id="guage3")], className="three columns",
                 ),
                 html.Div(
                     [html.H2("LEDディスプレイ"), daq.LEDDisplay(id="guage4")],
@@ -52,9 +48,7 @@ app.layout = html.Div(
 )
 
 # ➋ コールバック オンとオフを管理するコールバック
-@app.callback(
-    Output("daq-interval", "disabled"), [Input("daq-powerbutton", "on")]
-)
+@app.callback(Output("daq-interval", "disabled"), [Input("daq-powerbutton", "on")])
 def guage_witch(buttonon):
     if buttonon:
         return False
@@ -73,7 +67,7 @@ def guage_witch(buttonon):
     [Input("daq-interval", "n_intervals")],
 )
 def update_guages(n_intervals):
-    return (round(random.random() * 10, 4), ) * 4
+    return list(np.random.uniform(0, 10, 4))
 
 
 if __name__ == "__main__":

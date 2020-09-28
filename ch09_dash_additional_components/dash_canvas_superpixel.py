@@ -4,8 +4,12 @@ import numpy as np
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 from dash_canvas import DashCanvas
-from dash_canvas.utils import (array_to_data_url, image_string_to_PILImage,
-                               parse_jsonstring, superpixel_color_segmentation)
+from dash_canvas.utils import (
+    array_to_data_url,
+    image_string_to_PILImage,
+    parse_jsonstring,
+    superpixel_color_segmentation,
+)
 from skimage import color, io
 
 image_path = "img/bird2.png"
@@ -29,8 +33,7 @@ app.layout = html.Div(
             style={"float": "left", "width": "40%"},
         ),
         html.Div(
-            [html.Img(id="remove-background")],
-            style={"float": "left", "width": "40%"},
+            [html.Img(id="remove-background")], style={"float": "left", "width": "40%"},
         ),
     ]
 )
@@ -63,7 +66,9 @@ def remove_background(json_data, image):
         else:
             seg = np.ones(shape)
         filled_image = np.copy(image_array)
-        filled_image[np.logical_not(seg)] = np.array([255, 255, 255], dtype="uint8")  # ➎
+        filled_image[np.logical_not(seg)] = np.array(
+            [255, 255, 255], dtype="uint8"
+        )  # ➎
         return array_to_data_url(filled_image)  # ➏
 
     else:
