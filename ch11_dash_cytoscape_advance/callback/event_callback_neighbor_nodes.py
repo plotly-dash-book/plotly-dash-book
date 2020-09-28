@@ -43,7 +43,7 @@ cyto_compo = cyto.Cytoscape(
     stylesheet=default_stylesheets,
 )
 
-# タップしたノードの情報を表示するpタグ
+# クリックしたノードの情報を表示する<p>タグ
 pre_compo = html.Pre(
     id="pre-compo", style={"background-color": "#CCCCCC", "font-size": "20px"}
 )
@@ -55,7 +55,7 @@ def get_neighbor_node_ids(node_element_dict):  # ❶
     """
     ノードの要素辞書から隣接ノードのIDのリストを取得する
     """
-    # タップしたノードのID
+    # クリックしたノードのID
     node_id = node_element_dict["data"]["id"]
     # 隣接ノードのIDを取得する
     neighbor_node_ids = [x["source"] for x in node_element_dict["edgesData"]]
@@ -65,10 +65,10 @@ def get_neighbor_node_ids(node_element_dict):  # ❶
     return neighbor_node_ids
 
 
-# ❷ タップしたノードの隣接ノードのスタイルを変更するコールバック関数
+# ❷ クリックしたノードの隣接ノードのスタイルを変更するコールバック関数
 @app.callback(
     Output("cyto-compo", "stylesheet"),  # スタイル設定を変化させる
-    [Input("cyto-compo", "tapNode")],  # タップしたノードの要素辞書全体を受け取る
+    [Input("cyto-compo", "tapNode")],  # クリックしたノードの要素辞書全体を受け取る
 )
 def change_neighbor_node_style(node_element_dict):
     if not node_element_dict:
