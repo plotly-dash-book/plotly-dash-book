@@ -1,0 +1,12 @@
+.circle {
+    /* 背景色の設定 */
+    background-color: green;
+    /* 高さの設定 */
+    height: 300px;
+    /* 横幅の設定 */
+    width: 300px;
+    /* 要素の角を丸める */
+    border-radius: 50%;
+    /* 要素を中央に配置する */
+    margin: auto;
+}
