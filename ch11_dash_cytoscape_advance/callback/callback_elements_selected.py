@@ -26,7 +26,7 @@ elements = default_nodes + default_edges
 
 # ノードIDを入力するボックス
 node_id_input = dcc.Input(
-    style={"font-size": "25px"},
+    style={"fontSize": "25px"},
     id="node-id-input-compo",
     placeholder=0,
     type="number",
@@ -41,8 +41,7 @@ default_stylesheets = [
         "selector": "node",
         "style": {
             "content": "data(id)",
-            "backgroujnd-color": "red",
-            "font-size": "25px",
+            "fontSize": "25px",
         },
     },
     {

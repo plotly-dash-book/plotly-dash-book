@@ -45,7 +45,7 @@ cyto_compo = cyto.Cytoscape(
 
 # クリックしたノードの情報を表示する<p>タグ
 pre_compo = html.Pre(
-    id="pre-compo", style={"background-color": "#CCCCCC", "font-size": "20px"}
+    id="pre-compo", style={"backgroundColor": "#CCCCCC", "fontSize": "20px"}
 )
 
 app.layout = html.Div([pre_compo, cyto_compo])
