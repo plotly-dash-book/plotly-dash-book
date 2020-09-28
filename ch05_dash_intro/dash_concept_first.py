@@ -8,5 +8,5 @@ app = dash.Dash(__name__)
 app.layout = html.H1("Hello Dash")
 
 if __name__ == "__main__":
-    # ➌ サーバをローカルモードで起動する
+    # ➌ アプリケーションを起動する
     app.run_server(debug=True)

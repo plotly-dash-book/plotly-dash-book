@@ -3,15 +3,15 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 
-# ➊ コンポーネントのスタイルの作成
+# ➊ コンポーネントのスタイル設定. 横幅80％,中央寄せにし,上下に5％の余白を作る.
 core_style = {"width": "80%", "margin": "5% auto"}
 
 
 app = dash.Dash(__name__)
 
-# ➋ レイアウトの作成
+# ➋ レイアウトにdivの子要素として3つのコンポーネントを渡す
 app.layout = html.Div(
-    [  # ➌ Divの子要素に3つのコンポーネントを渡す
+    [  # ➌ 見出しを作成する
         html.H1("Hello Dash", style={"textAlign": "center"}),
         # ➍ ドロップダウンを作成する
         dcc.Dropdown(

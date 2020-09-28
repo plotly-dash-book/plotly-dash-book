@@ -35,7 +35,7 @@ app.layout = html.Div(
     # ➍ 戻り値の出力先を指定
     Output("all-components", "style"),
     # ➎ コールバックの呼び出し要素の指定
-    [Input("my-dropdown", "value")],
+    Input("my-dropdown", "value"),
 )
 def update_background(selected_value):
     # ➏ 返り値
