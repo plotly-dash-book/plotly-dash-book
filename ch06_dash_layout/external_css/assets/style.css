@@ -1,0 +1,25 @@
+/* ➊ライム色の長方形作成のCSS */
+
+.roundsqlime {
+    width: 40%;
+    height: 250px;
+    background-color: lime;
+    margin: 5%;
+}
+
+
+/* ➋スカイブルーの長方形作成のCSS */
+
+.roundsqblue {
+    width: 29%;
+    height: 250px;
+    background-color: skyblue;
+    margin: 2%;
+}
+
+
+/* ➌要素を横並びにするためのCSS */
+
+.columns {
+    float: left;
+}
