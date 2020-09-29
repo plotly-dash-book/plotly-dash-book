@@ -13,7 +13,7 @@ app = dash.Dash(__name__, external_stylesheets=dash_stylesheets)
 # ➊ レイアウトの作成
 app.layout = html.Div(
     [
-        # ➌ グラフの種類により切り替わるタイトル
+        # ➌ 指定したグラフに応じてグラフのタイトルを変更
         html.H3(id="title", style={"textAlign": "center"}),
         html.Div(
             [
@@ -31,7 +31,7 @@ app.layout = html.Div(
                             value=["Thur", "Fri", "Sat", "Sun"],
                         ),
                     ],
-                    className="six columns"
+                    className="six columns",
                 ),
                 html.Div(
                     [
@@ -46,7 +46,7 @@ app.layout = html.Div(
                             value="bar",
                         ),
                     ],
-                    className="six columns"
+                    className="six columns",
                 ),
             ],
             style={"padding": "2%", "margin": "auto"},
@@ -61,9 +61,11 @@ app.layout = html.Div(
 
 # ➋ コールバックの作成
 @app.callback(
-    # ➐ Outputインスタンスが複数の場合はリストに格納
-    [Output("title", "children"), Output("app_graph", "figure")],
-    [Input("day_selector", "value"), Input("graph_selector", "value")],
+    # ➐ Outputインスタンス,Inputインスタンスの順に配置
+    Output("title", "children"),
+    Output("app_graph", "figure"),
+    Input("day_selector", "value"),
+    Input("graph_selector", "value"),
 )
 def update_graph(selected_days, selected_graph):
     # ➑ データフレームの作成
@@ -75,7 +77,7 @@ def update_graph(selected_days, selected_graph):
             selected_df, x="total_bill", y="tip", color="smoker", height=600
         )
     else:
-        title = ("曜日当たり売り上げ（棒グラフ）",)
+        title = ("曜日ごとの売り上げ（棒グラフ）",)
         figure = px.bar(selected_df, x="day", y="total_bill", height=600)
     return title, figure
 

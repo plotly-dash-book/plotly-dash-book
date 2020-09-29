@@ -1,30 +1,38 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__)
+external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 
-# ➊ レイアウト
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+# ➊ レイアウト 各コンポーネントにIDを付ける
 app.layout = html.Div(
     [
-        html.H1(id="callback-output"),
-        # valueに初期値0を設定
-        dcc.Slider(id="callback-input", value=0, updatemode="drag"),
+        # コールバックの返り値を表示する
+        html.H1(id="head-title"),
+        # 文字を入力するテキストエリア
+        dcc.Textarea(
+            id="my-text-state",
+            value="initial value",  # 初期値の設定
+            style={"width": "80%", "fontSize": 30},
+        ),
+        # クリックするとコールバックを呼び出すボタン
+        html.Button(id="my-button", n_clicks=0, children="submit"),
     ],
-    style={"textAlign": "center", "width": "60%", "margin": "auto"},
+    style={"margin": 50},
 )
 
-# ➋ コールバック
+# ➋ コールバックの作成。
 @app.callback(
-    # ➌ 出力項目を指定。ID名、属性名を渡す
-    Output("callback-output", "children"),
-    # ➍ 入力項目を指定。ID名、属性名を渡す
-    [Input("callback-input", "value")],
+    Output("head-title", "children"),  # ➌ 出力項目
+    Input("my-button", "n_clicks"),  # ➍ 入力項目
+    State("my-text-state", "value"),  # ➎ 状態項目
 )
-# ➎ コールバック関数
-def update_app(num_value):
-    return num_value
+# ➏ コールバック関数
+def update_title(n_clicks, text_value):
+    return text_value
 
 
 if __name__ == "__main__":
