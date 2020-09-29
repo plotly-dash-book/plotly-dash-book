@@ -31,7 +31,7 @@ app.layout = html.Div(
                             value=["Thur", "Fri", "Sat", "Sun"],
                         ),
                     ],
-                    className="six columns",
+                    className="six columns"
                 ),
                 html.Div(
                     [
@@ -46,7 +46,7 @@ app.layout = html.Div(
                             value="bar",
                         ),
                     ],
-                    className="six columns",
+                    className="six columns"
                 ),
             ],
             style={"padding": "2%", "margin": "auto"},
@@ -54,7 +54,7 @@ app.layout = html.Div(
         # ➏ グラフの表示場所
         html.Div(
             [dcc.Graph(id="app_graph", style={"padding": "3%"}),],
-            style={"padding": "3%"},
+            style={"padding": "3%", "marginTop": 50},
         ),
     ]
 )

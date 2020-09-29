@@ -28,11 +28,11 @@ app.layout = html.Div(
 @app.callback(
     Output("head-title", "children"),  # ➌ 出力項目
     [Input("my-button", "n_clicks")],  # ➍ 入力項目
-    [State("my-input", "value")],  # ➎ 状態項目
+    [State("my-text-state", "value")],  # ➎ 状態項目
 )
 # ➏ コールバック関数
-def update_title(n_clicks, input_value):
-    return input_value
+def update_title(n_clicks, text_value):
+    return text_value
 
 
 if __name__ == "__main__":
