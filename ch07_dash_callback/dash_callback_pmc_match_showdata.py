@@ -12,7 +12,7 @@ app = dash.Dash(__name__)
 # ➊ レイアウトの作成
 app.layout = html.Div(
     [
-        html.Button("PUSH ME", id="add_drop"), 
+        html.Button("PUSH ME", id="add_drop"),
         html.Div(id="show_drop", children=[]),  # ドロップダウンと選択された値が追加されるUI
     ]
 )
@@ -22,7 +22,7 @@ app.layout = html.Div(
     Output("show_drop", "children"),
     Input("add_drop", "n_clicks"),
     State("show_drop", "children"),
-    prevent_initial_call=True, 
+    prevent_initial_call=True,
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
@@ -30,11 +30,9 @@ def update_layout(n_clicks, children):
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks-1],
-            ), # ➌ 文字列を表示するコンポーネント
-            html.Div(
-                id={"type": "text_show", "index": n_clicks}
-            )
+                value=gapminder.country.unique()[n_clicks - 1],
+            ),  # ➌ 文字列を表示するコンポーネント
+            html.P(id={"type": "text_show", "index": n_clicks}),
         ]
     )
 
@@ -44,7 +42,7 @@ def update_layout(n_clicks, children):
 
 # ➍ コールバック2
 @app.callback(
-    Output({"type": "text_show", "index": MATCH}, "children"), # ➎
+    Output({"type": "text_show", "index": MATCH}, "children"),  # ➎
     Input({"type": "my_dropdown", "index": MATCH}, "value"),  # ➏
 )
 def update_graph(selected_values):

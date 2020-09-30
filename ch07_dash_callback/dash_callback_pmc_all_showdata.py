@@ -23,19 +23,19 @@ app.layout = html.Div(
     Output("show_drop", "children"),
     Input("add_drop", "n_clicks"),
     State("show_drop", "children"),
-    #prevent_initial_call=True,  # ➏
+    # prevent_initial_call=True,  # ➏
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
         [
             dcc.Dropdown(
-                id={"type": "my_dropdown", "index": n_clicks}, # ➐
+                id={"type": "my_dropdown", "index": n_clicks},  # ➐
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks-1],
+                value=gapminder.country.unique()[n_clicks - 1],
             )
         ]
     )
-    children.append(new_layout) # ➑
+    children.append(new_layout)  # ➑
     return children
 
 

@@ -53,7 +53,9 @@ app.layout = html.Div(
         ),
         # ➏ グラフの表示場所
         html.Div(
-            [dcc.Graph(id="app_graph", style={"padding": "3%"}),],
+            [
+                dcc.Graph(id="app_graph", style={"padding": "3%"}),
+            ],
             style={"padding": "3%", "marginTop": 50},
         ),
     ]

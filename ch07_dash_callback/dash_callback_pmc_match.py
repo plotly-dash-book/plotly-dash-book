@@ -14,7 +14,7 @@ app = dash.Dash(__name__)
 # 2つのコンポーネントを持つレイアウト
 app.layout = html.Div(
     [
-        html.Button("PUSH ME", id="my_button", n_clicks=0),
+        html.Button("PUSH ME", id="add_drop", n_clicks=0),
         html.Div(id="my_div", children=[]),
     ]
 )
@@ -22,13 +22,12 @@ app.layout = html.Div(
 # ➊ コールバック1
 @app.callback(
     Output("my_div", "children"),
-    [Input("my_button", "n_clicks")],
+    [Input("add_drop", "n_clicks")],
     [State("my_div", "children")],
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
         [
-            html.P(id={"type": "title", "index": n_clicks}),
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
@@ -51,18 +50,14 @@ def update_layout(n_clicks, children):
 
 # ➋コールバック2
 @app.callback(
-    [
-        Output({"type": "my_graph", "index": MATCH}, "figure"),
-        Output({"type": "title", "index": MATCH}, "children"),
-    ],
-    [
-        Input({"type": "my_dropdown", "index": MATCH}, "value"),
-        Input({"type": "my_dropdown2", "index": MATCH}, "value"),
-    ],  # ➌ indexにMATCHを渡す
+    # ➌ indexにMATCHを渡す
+    Output({"type": "my_graph", "index": MATCH}, "figure"),
+    Input({"type": "my_dropdown", "index": MATCH}, "value"),
+    Input({"type": "my_dropdown2", "index": MATCH}, "value"),
 )
 def update_graph(selected_value, selected_col):
     gap = gapminder[gapminder["country"] == selected_value]
-    return px.line(gap, x="year", y=selected_col), str(selected_value)
+    return px.line(gap, x="year", y=selected_col)
 
 
 app.run_server(debug=True)

@@ -22,8 +22,9 @@ app.layout = html.Div(
 # コールバック1
 @app.callback(
     Output("my_div", "children"),
-    [Input("my_button", "n_clicks")],
-    [State("my_div", "children")],
+    Input("my_button", "n_clicks"),
+    State("my_div", "children"),
+    prevent_initial_call=True,
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
@@ -51,16 +52,15 @@ def update_layout(n_clicks, children):
 # コールバック2
 @app.callback(
     Output({"type": "my_graph", "index": MATCH}, "figure"),
-    [
-        Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"),
-        Input({"type": "my_dropdown2", "index": MATCH}, "value"),
-    ],  # ➊ 1つ目のInputのindexにALLSMALLERを渡す
+    # ➊ 1つ目のInputのindexにALLSMALLER,2つ目,3つ目にMATCHを渡す
+    Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"),
+    Input({"type": "my_dropdown", "index": MATCH}, "value"),
+    Input({"type": "my_dropdown2", "index": MATCH}, "value"),
 )
-def update_graph(selected_value, selected_col):
-    num = len(selected_value) + 1  # ➋
-    countries = gapminder.country.unique()[:num]  # ➌
-    selected_countries = gapminder[gapminder["country"].isin(countries)]  # ➍
-    return px.line(selected_countries, x="year", y=selected_col, color="country")  # ➎
+def update_graph(allsmaller_value, matching_value, selected_col):
+    selected_value = allsmaller_value + [matching_value]
+    selected_countries = gapminder[gapminder["country"].isin(selected_value)]
+    return px.line(selected_countries, x="year", y=selected_col, color="country")
 
 
 app.run_server(debug=True)
