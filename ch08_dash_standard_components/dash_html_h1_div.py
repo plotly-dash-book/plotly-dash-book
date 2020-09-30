@@ -11,8 +11,8 @@ app.layout = html.Div(
         html.P("- 清水寺", n_clicks=0, id="one"),
         html.P("- 八坂神社", n_clicks=0, id="two"),
         html.P("- 銀閣寺", n_clicks=0, id="three"),
-        html.Div("- 大文字", n_clicks=0, id="four"),
-        html.Div("- 鴨川", n_clicks=0, id="five"),
+        html.P("- 大文字", n_clicks=0, id="four"),
+        html.P("- 鴨川", n_clicks=0, id="five"),
     ],
     style={"textAlign": "center"},
 )
@@ -20,7 +20,7 @@ app.layout = html.Div(
 # ➊ ID名のリストからコールバックを作成
 for id_ in ["one", "two", "three", "four", "five"]:
 
-    @app.callback(Output(id_, "hidden"), [Input(id_, "n_clicks")])
+    @app.callback(Output(id_, "hidden"), Input(id_, "n_clicks"))
     def letter_disappear(n_clicks):
         if n_clicks % 2 == 1:
             return True

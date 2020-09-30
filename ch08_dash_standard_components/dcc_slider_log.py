@@ -16,7 +16,9 @@ app.layout = html.Div(
             tooltip={"always_visible": False, "placement": "bottom"},  # ツールチップを下側に表示
             updatemode="drag",  # ➋ ハンドルへのスライダの反応
         ),
-        html.P(id="pow-output", style={"marginTop": "5%", "fontSize": 30}),  # コールバックの返り値を受け取る
+        html.P(
+            id="pow-output", style={"marginTop": "5%", "fontSize": 30}
+        ),  # コールバックの返り値を受け取る
     ],
     style={"width": "80%", "margin": "5% auto"},
 )

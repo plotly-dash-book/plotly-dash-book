@@ -10,18 +10,10 @@ app.layout = html.Div(
         # Locationコンポーネントの設置
         dcc.Location(id="my_location"),
         # コールバックの出力先となる4つのDivクラス
-        html.Div(
-            id="show_location1", style={"fontSize": 30, "textAlign": "center"}
-        ),
-        html.Div(
-            id="show_location2", style={"fontSize": 30, "textAlign": "center"}
-        ),
-        html.Div(
-            id="show_location3", style={"fontSize": 30, "textAlign": "center"}
-        ),
-        html.Div(
-            id="show_location4", style={"fontSize": 30, "textAlign": "center"}
-        ),
+        html.Div(id="show_location1", style={"fontSize": 30, "textAlign": "center"}),
+        html.Div(id="show_location2", style={"fontSize": 30, "textAlign": "center"}),
+        html.Div(id="show_location3", style={"fontSize": 30, "textAlign": "center"}),
+        html.Div(id="show_location4", style={"fontSize": 30, "textAlign": "center"}),
         # Linkコンポーネントの設置
         html.Br(),
         dcc.Link("/test", href="/test"),

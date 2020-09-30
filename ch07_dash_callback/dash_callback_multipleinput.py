@@ -34,7 +34,8 @@ app.layout = html.Div(
 
 # ページごとのコンテンツの作成
 # homeページ作成
-home = html.H1("Irisデータ")
+home = html.H1("irisデータ")
+
 # グラフページ作成
 graph = html.Div(
     [
@@ -113,7 +114,7 @@ def update_graph(selected_x, selected_y):
         color="species",
         marginal_y="violin",
         marginal_x="box",
-        title="Irisグラフ",
+        title="irisグラフ",
     )
 
 
@@ -124,9 +125,9 @@ def update_table(selected_value):
     return go.Figure(
         data=go.Table(
             header={"values": iris_df.columns},
-            cells={"values": [iris_df[k].tolist() for k in iris_df.columns]},
+            cells={"values": [iris_df[col].tolist() for col in iris_df.columns]},
         ),
-        layout=go.Layout(title="Irisデータテーブル"),
+        layout=go.Layout(title="irisデータテーブル"),
     )
 
 

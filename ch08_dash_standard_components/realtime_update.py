@@ -3,7 +3,7 @@ import datetime
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import numpy as np 
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from dash.dependencies import Input, Output
@@ -24,8 +24,8 @@ app.layout = html.Div(
         # ➊ タイトルは現在の時刻とn_clickの属性値を用いて作成する
         html.H1(id="realtime-title", style={"textAlign": "center"}),
         dcc.Graph(id="realtime-graph"),
-        # ➋ Intervalクラスの引数intervalで更新間隔を設定
-        dcc.Interval(id="realtime-interval", interval=1000, n_intervals=0),
+        # ➋ Intervalクラスの引数intervalで更新間隔を設定・更新最大回数は100回
+        dcc.Interval(id="realtime-interval", interval=1000, max_intervals=100),
     ]
 )
 

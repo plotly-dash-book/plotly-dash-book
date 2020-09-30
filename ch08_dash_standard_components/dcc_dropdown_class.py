@@ -10,14 +10,14 @@ app.layout = html.Div(
         dcc.Dropdown(
             # ➋ 選択肢の定義。"label"と"value"が必須
             options=[
-                {"label": "東京", "value": "東京"},
-                {"label": "北海道", "value": "北海道"},
-                {"label": "静岡", "value": "静岡"},
-                {"label": "愛知", "value": "愛知"},
-                {"label": "京都", "value": "京都"},
+                {"label": "東京", "value": "tokyo"},
+                {"label": "北海道", "value": "hokkaido"},
+                {"label": "静岡", "value": "shizuoka"},
+                {"label": "愛知", "value": "aichi"},
+                {"label": "京都", "value": "kyoto"},
             ],
             # ➌ 初期値を京都に設定
-            value="京都",
+            value="kyoto",
             # ➍ 文字を真ん中に寄せる
             style={"textAlign": "center"},
         )

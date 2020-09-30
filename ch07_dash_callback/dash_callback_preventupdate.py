@@ -21,7 +21,6 @@ app.layout = html.Div(
                 gapminder2007, x="gdpPercap", y="lifeExp", hover_name="country"
             ),
         ),
-        # ➊ ➌のコールバックの出力先
         html.P(
             id="hoverdata-p",
             style={
@@ -31,7 +30,7 @@ app.layout = html.Div(
                 "backgroundColor": "#e1eef6",
             },
         ),
-        # ➋ ➍のコールバックの出力先
+        # コールバックの出力先
         html.P(
             id="prevent-p",
             style={
@@ -45,17 +44,17 @@ app.layout = html.Div(
     style={"width": "80%", "margin": "auto", "textAlign": "center"},
 )
 
-# ➌ PreventUpdateを用いないコールバック
+# PreventUpdateを用いないコールバック
 @app.callback(Output("hoverdata-p", "children"), [Input("gapminder-g", "hoverData")])
 def show_hover_data(hoverData):
     return json.dumps(hoverData)
 
 
-# ➍ PreventUpdateを用いたコールバック
+# ➊ PreventUpdateを用いたコールバック
 @app.callback(Output("prevent-p", "children"), [Input("gapminder-g", "hoverData")])
-def prevent_Null(hoverData):
+def prevent_none(hoverData):
     if hoverData is None:
-        # ➎ PreventUpdateクラスを用いて更新を停止
+        # ➋ PreventUpdateクラスを用いて更新を停止
         raise dash.exceptions.PreventUpdate
     return json.dumps(hoverData)
 

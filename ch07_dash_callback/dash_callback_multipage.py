@@ -32,12 +32,12 @@ app.layout = html.Div(
 
 # ➋ ページごとのコンテンツの作成
 # home(/)のコンテンツ
-home = html.H1("Irisデータ")
+home = html.H1("irisデータ")
 
 # graph(/graph)のコンテンツ
 graph = dcc.Graph(
     figure=px.scatter(
-        iris, x="sepal_width", y="sepal_length", color="species", title="Irisグラフ"
+        iris, x="sepal_width", y="sepal_length", color="species", title="irisグラフ"
     )
 )
 
@@ -48,7 +48,7 @@ table = dcc.Graph(
             header={"values": iris.columns},
             cells={"values": [iris[col].tolist() for col in iris.columns]},
         ),
-        layout=go.Layout(title="Irisデータテーブル"),
+        layout=go.Layout(title="irisデータテーブル"),
     )
 )
 

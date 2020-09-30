@@ -81,7 +81,7 @@ def update_contents(contents, filename):
         decoded = base64.b64decode(content_string)
         # csvファイルとエクセルファイルのデータ読み込みの処理
         try:
-            if filename.endswith('.csv'):
+            if filename.endswith(".csv"):
                 df = pd.read_csv(io.StringIO(decoded.decode("utf-8")))
             elif filename.endswith(".xls") or filename.endswith(".xlsx"):
                 df = pd.read_excel(io.BytesIO(decoded))
@@ -116,7 +116,7 @@ def update_dropdown(columns, rows):
         raise dash.exceptions.PreventUpdate
 
 
-# ➍ ドロップダウンの選択を受けてグラフ作成するコールバック
+# ➍ ドロップダウンの選択を受けてグラフを作成するコールバック
 @app.callback(
     Output("update_graph", "children"),
     [
@@ -135,7 +135,6 @@ def update_graph(columns, rows, selected_countries):
     dff["date"] = pd.to_datetime(dff["date"])
     dff = dff[dff["国名"].isin(selected_countries)]
     return dcc.Graph(figure=px.line(dff, x="date", y="value", color="国名"))
-    
 
 
 if __name__ == "__main__":
