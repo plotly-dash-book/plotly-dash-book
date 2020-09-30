@@ -15,7 +15,7 @@ app.layout = html.Div(
         html.Button("PUSH ME", id="add_drop"),  # 新たなドロップダウンを追加するボタン（➋）
         html.Div(id="show_drop", children=[]),  # ドロップダウンを追加するDiv（➌）
         html.Div(id="my_text"),  # テキストを描画するDiv（➍）
-    ]
+    ], style={"width": "80%", "margin": "2% auto"}
 )
 
 # ➎ コールバック1
@@ -23,7 +23,7 @@ app.layout = html.Div(
     Output("show_drop", "children"),
     Input("add_drop", "n_clicks"),
     State("show_drop", "children"),
-    # prevent_initial_call=True,  # ➏
+    prevent_initial_call=True,  # ➏
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(

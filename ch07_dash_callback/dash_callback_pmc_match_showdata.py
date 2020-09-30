@@ -14,7 +14,7 @@ app.layout = html.Div(
     [
         html.Button("PUSH ME", id="add_drop"),
         html.Div(id="show_drop", children=[]),  # ドロップダウンと選択された値が追加されるUI
-    ]
+    ], style={"width": "80%", "margin": "2% auto"}
 )
 
 # ➋ コールバック1
