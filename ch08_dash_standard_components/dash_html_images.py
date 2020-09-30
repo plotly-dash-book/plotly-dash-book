@@ -27,9 +27,9 @@ app.layout = html.Div(
 # ➊ コールバック
 @app.callback(
     Output("bird-img", "src"),
-        Input("b-one", "n_clicks"),
-        Input("b-two", "n_clicks"),
-        Input("b-three", "n_clicks"),
+    Input("b-one", "n_clicks"),
+    Input("b-two", "n_clicks"),
+    Input("b-three", "n_clicks"),
 )
 def update_image(c_one, c_two, c_three):
     # ➋ コールバックを呼び出したコンポーネントのID名を渡す
