@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 
 df = pd.read_csv("data/kitakyushu_hinanjo.csv", encoding="shift-jis")
 # mapboxのアクセストークンを読み込む
-px.set_mapbox_access_token("pk.eyJ1IjoibWF6YXJpbW9ubyIsImEiOiJja2ZtOTlxYzUxd2FrMnFudno1bDVhN21xIn0.Gvq6m41p4FMdwPnq5Tmr3Q")
+px.set_mapbox_access_token("< your-token >")
 
 app = dash.Dash(__name__)
 
