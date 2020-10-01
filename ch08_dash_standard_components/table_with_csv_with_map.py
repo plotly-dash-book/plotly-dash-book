@@ -54,11 +54,9 @@ app.layout = html.Div(
 @app.callback(
     # 出力先はGraphクラス
     Output("kitakyushu-map", "figure"),
-    [
-        # 入力元はデータテーブル
-        Input("kitakyushu-datatable", "columns"),
-        Input("kitakyushu-datatable", "derived_virtual_data"),
-    ],
+    # 入力元はデータテーブル
+    Input("kitakyushu-datatable", "columns"),
+    Input("kitakyushu-datatable", "derived_virtual_data"),
 )
 def update_map(columns, rows):
     # ➍ フィルタした後のデータでデータテーブルを作成する

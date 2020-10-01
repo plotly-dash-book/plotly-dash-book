@@ -72,8 +72,8 @@ app.layout = html.Div(
 # ➋ テーブルを作成するためのコールバック
 @app.callback(
     Output("upload-content", "children"),
-    [Input("upload-csv", "contents")],
-    [State("upload-csv", "filename")],
+    Input("upload-csv", "contents"),
+    State("upload-csv", "filename"),
 )
 def update_contents(contents, filename):
     if contents:
@@ -101,8 +101,10 @@ def update_contents(contents, filename):
 
 # ➌ グラフタブのドロップダウン作成用コールバック
 @app.callback(
-    [Output("table-dropdown", "options"), Output("table-dropdown", "value")],
-    [Input("table", "columns"), Input("table", "derived_virtual_data")],
+    Output("table-dropdown", "options"),
+    Output("table-dropdown", "value"),
+    Input("table", "columns"),
+    Input("table", "derived_virtual_data"),
 )
 def update_dropdown(columns, rows):
     # テーブルのデータをデータフレームとする
@@ -119,11 +121,9 @@ def update_dropdown(columns, rows):
 # ➍ ドロップダウンの選択を受けてグラフを作成するコールバック
 @app.callback(
     Output("update_graph", "children"),
-    [
-        Input("table", "columns"),
-        Input("table", "derived_virtual_data"),
-        Input("table-dropdown", "value"),
-    ],
+    Input("table", "columns"),
+    Input("table", "derived_virtual_data"),
+    Input("table-dropdown", "value"),
 )
 def update_graph(columns, rows, selected_countries):
     # テーブルのデータをデータフレームとする

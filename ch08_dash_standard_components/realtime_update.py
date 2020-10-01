@@ -31,8 +31,9 @@ app.layout = html.Div(
 
 # ➌ コールバックの作成
 @app.callback(
-    [Output("realtime-title", "children"), Output("realtime-graph", "figure")],
-    [Input("realtime-interval", "n_intervals")],
+    Output("realtime-title", "children"),
+    Output("realtime-graph", "figure"),
+    Input("realtime-interval", "n_intervals"),
 )
 def update_graph(n_intervals):
 

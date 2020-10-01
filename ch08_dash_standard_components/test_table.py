@@ -21,7 +21,7 @@ app.layout = dash_table.DataTable(
     ],
     # ➌ テーブルを画面いっぱいに広げない
     fill_width=False,
-    merge_duplicate_headers=True, 
+    merge_duplicate_headers=True,
     style_data={"width": 160, "fontSize": 24, "textAlign": "center"},
 )
 

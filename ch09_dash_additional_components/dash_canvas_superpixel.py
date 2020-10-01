@@ -45,11 +45,11 @@ app.layout = html.Div(
 )
 def remove_background(json_data, image):
     if json_data:
-        # ➊ imageがある場合、それを基に画像のnumpy.ndarrayに変換する
+        # ➊ imageが値をもつ場合、それを基に画像のnumpy.ndarrayに変換する
         if image:
             image_array = image_string_to_PILImage(image)
             image_array = np.asarray(image_array)
-        # imageがない場合、imreadで画像を読み込む
+        # imageが値をもたない場合、imreadで画像を読み込む
         else:
             image_array = io.imread(image_path)
         # ➋ 画像のアレイのサイズを変数shapeに代入する

@@ -29,18 +29,14 @@ app.layout = html.Div(
 
 # ➊ URLを4つの ``Div`` クラスに返すコールバック
 @app.callback(
-    [
-        Output("show_location1", "children"),
-        Output("show_location2", "children"),
-        Output("show_location3", "children"),
-        Output("show_location4", "children"),
-    ],
-    [
-        Input("my_location", "href"),
-        Input("my_location", "pathname"),
-        Input("my_location", "search"),
-        Input("my_location", "hash"),
-    ],
+    Output("show_location1", "children"),
+    Output("show_location2", "children"),
+    Output("show_location3", "children"),
+    Output("show_location4", "children"),
+    Input("my_location", "href"),
+    Input("my_location", "pathname"),
+    Input("my_location", "search"),
+    Input("my_location", "hash"),
 )
 def update_location(url, pathname, search, hash):
     return (
