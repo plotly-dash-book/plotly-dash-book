@@ -17,7 +17,7 @@ app.layout = html.Div(
                 "whiteSpace": "normal",
             },
             fixed_rows={"headers": True},  # ➊ 縦スクロール時にヘッダを固定
-            fixed_columns={"headers": True, "data": 3},  # ➋ 横スクロール時に最初の3列を固定
+            #fixed_columns={"headers": True, "data": 3},  # ➋ 横スクロール時に最初の3列を固定
             style_table={"minWidth": "100%"},  # ➌ テーブル大きさ対策
             columns=[{"name": col, "id": col} for col in df.columns],
             data=df.to_dict("records"),
