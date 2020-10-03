@@ -32,7 +32,7 @@ def update_layout(n_clicks, children):
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks],
+                value=gapminder.country.unique()[n_clicks-1],
             ),
             dcc.Dropdown(
                 id={"type": "my_dropdown2", "index": n_clicks},
@@ -54,13 +54,13 @@ def update_layout(n_clicks, children):
     Output({"type": "my_graph", "index": MATCH}, "figure"),
     # ➊ 1つ目のInputのindexにALLSMALLER,2つ目,3つ目にMATCHを渡す
     Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"),
-    Input({"type": "my_dropdown", "index": MATCH}, "value"), # ➋
+    Input({"type": "my_dropdown", "index": MATCH}, "value"),  # ➋
     Input({"type": "my_dropdown2", "index": MATCH}, "value"),
 )
 def update_graph(allsmaller_value, matching_value, selected_col):
-    selected_value = allsmaller_value + [matching_value] # ➌
-    selected_countries = gapminder[gapminder["country"].isin(selected_value)] # ➍
-    return px.line(selected_countries, x="year", y=selected_col, color="country") # ➎
+    selected_value = allsmaller_value + [matching_value]  # ➌
+    selected_countries = gapminder[gapminder["country"].isin(selected_value)]  # ➍
+    return px.line(selected_countries, x="year", y=selected_col, color="country")  # ➎
 
 
 app.run_server(debug=True)

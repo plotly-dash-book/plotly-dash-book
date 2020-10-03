@@ -22,8 +22,9 @@ app.layout = html.Div(
 # ➊ コールバック1
 @app.callback(
     Output("my_div", "children"),
-    [Input("add_drop", "n_clicks")],
-    [State("my_div", "children")],
+    Input("add_drop", "n_clicks"),
+    State("my_div", "children"),
+    prevent_initial_call=True,
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
@@ -31,7 +32,7 @@ def update_layout(n_clicks, children):
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks],
+                value=gapminder.country.unique()[n_clicks-1],
             ),
             dcc.Dropdown(
                 id={"type": "my_dropdown2", "index": n_clicks},

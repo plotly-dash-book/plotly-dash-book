@@ -23,7 +23,7 @@ app.layout = html.Div(
     Output("my_div", "children"),
     [Input("my_button", "n_clicks")],
     [State("my_div", "children")],
-    prevent_initial_call=True,  # ➌
+    prevent_initial_call=True,
 )
 def update_layout(n_clicks, children):
     new_layout = html.Div(
@@ -31,7 +31,7 @@ def update_layout(n_clicks, children):
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks],
+                value=gapminder.country.unique()[n_clicks-1],
             )
         ]
     )
@@ -39,18 +39,18 @@ def update_layout(n_clicks, children):
     return children
 
 
-# ➋ コールバック2
+# コールバック2
 @app.callback(
     Output("my_select", "children"),
-    [Input({"type": "my_dropdown", "index": ALL}, "value")],  # ➍
-    prevent_initial_call=True,
+    [Input({"type": "my_dropdown", "index": ALL}, "value")],
+    prevent_initial_call=True
 )
 def update_graph(selected_values):
-    selected_countries = gapminder[gapminder["country"].isin(selected_values)]  # ➎
+    selected_countries = gapminder[gapminder["country"].isin(selected_values)] 
 
     return dcc.Graph(
         figure=px.line(selected_countries, x="year", y="lifeExp", color="country")
-    )  # ➏
+    ) 
 
 
 app.run_server(debug=True)

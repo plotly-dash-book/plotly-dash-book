@@ -14,7 +14,8 @@ app.layout = html.Div(
     [
         html.Button("PUSH ME", id="add_drop"),
         html.Div(id="show_drop", children=[]),  # ドロップダウンと選択された値が追加されるUI
-    ], style={"width": "80%", "margin": "2% auto"}
+    ],
+    style={"width": "80%", "margin": "2% auto"},
 )
 
 # ➋ コールバック1
@@ -42,9 +43,9 @@ def update_layout(n_clicks, children):
 
 # コールバック2
 @app.callback(
-    Output({"type": "text_show", "index": MATCH}, "children"), 
-    # ➊ Inputインスタンスに渡すIDキー"index"にALLSMALLERに更新
-    Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"), 
+    Output({"type": "text_show", "index": MATCH}, "children"),
+    # ➊ IDキー"index"に渡すセレクタをALLSMALLERに更新
+    Input({"type": "my_dropdown", "index": ALLSMALLER}, "value"),
 )
 def update_graph(selected_values):
     return str(selected_values)

@@ -46,9 +46,9 @@ app.layout = html.Div(
 
 @app.callback(
     # ➊ データの状態に関係なくコールバックを更新する出力先
-        Output("hoverdata-p", "children"),
-        # ➋ Noneであれば、コールバックの更新を停止する出力先
-        Output("prevent-p", "children"),
+    Output("hoverdata-p", "children"),
+    # ➋ Noneであれば、コールバックの更新を停止する出力先
+    Output("prevent-p", "children"),
     Input("gapminder-g", "hoverData"),
 )
 def show_hover_data(hoverData):
