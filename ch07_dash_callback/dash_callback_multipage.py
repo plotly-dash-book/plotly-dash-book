@@ -53,7 +53,7 @@ table = dcc.Graph(
 )
 
 
-@app.callback(Output("show_location", "children"), [Input("my_location", "pathname")])
+@app.callback(Output("show_location", "children"), Input("my_location", "pathname"))
 # ➌ 各pathnameごとに返すコンテンツを指定する
 def update_location(pathname):
     if pathname == "/graph":

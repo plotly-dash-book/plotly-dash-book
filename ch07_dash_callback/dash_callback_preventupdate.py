@@ -45,13 +45,13 @@ app.layout = html.Div(
 )
 
 # PreventUpdateを用いないコールバック
-@app.callback(Output("hoverdata-p", "children"), [Input("gapminder-g", "hoverData")])
+@app.callback(Output("hoverdata-p", "children"), Input("gapminder-g", "hoverData"))
 def show_hover_data(hoverData):
     return json.dumps(hoverData)
 
 
 # ➊ PreventUpdateを用いたコールバック
-@app.callback(Output("prevent-p", "children"), [Input("gapminder-g", "hoverData")])
+@app.callback(Output("prevent-p", "children"), Input("gapminder-g", "hoverData"))
 def prevent_none(hoverData):
     if hoverData is None:
         # ➋ PreventUpdateクラスを用いて更新を停止

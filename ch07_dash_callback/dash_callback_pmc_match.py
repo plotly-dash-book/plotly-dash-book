@@ -32,7 +32,7 @@ def update_layout(n_clicks, children):
             dcc.Dropdown(
                 id={"type": "my_dropdown", "index": n_clicks},
                 options=[{"label": c, "value": c} for c in gapminder.country.unique()],
-                value=gapminder.country.unique()[n_clicks-1],
+                value=gapminder.country.unique()[n_clicks - 1],
             ),
             dcc.Dropdown(
                 id={"type": "my_dropdown2", "index": n_clicks},

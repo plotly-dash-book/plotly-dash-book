@@ -38,7 +38,7 @@ app.layout = html.Div(
 @app.callback(
     Output("hoverdata-p", "children"),
     # ➏ GraphのselectedData属性を指定する
-    [Input("gapminder-g", "selectedData")],
+    Input("gapminder-g", "selectedData"),
 )
 def show_hover_data(selectedData):
     return json.dumps(selectedData)

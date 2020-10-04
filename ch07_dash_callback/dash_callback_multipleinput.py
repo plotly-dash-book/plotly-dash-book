@@ -91,7 +91,7 @@ table = html.Div(
 )
 
 # ページ切り替え用コールバック
-@app.callback(Output("show_location1", "children"), [Input("my_location", "pathname")])
+@app.callback(Output("show_location1", "children"), Input("my_location", "pathname"))
 def update_location(pathname):
     if pathname == "/graph":
         return graph
@@ -104,7 +104,8 @@ def update_location(pathname):
 # グラフ更新用コールバック
 @app.callback(
     Output("radio-graph", "figure"),
-    [Input("x_axis_radio", "value"), Input("y_axis_radio", "value")],
+    Input("x_axis_radio", "value"),
+    Input("y_axis_radio", "value"),
 )
 def update_graph(selected_x, selected_y):
     return px.scatter(
@@ -119,7 +120,7 @@ def update_graph(selected_x, selected_y):
 
 
 # テーブル更新用コールバック
-@app.callback(Output("table", "figure"), [Input("species-dropdown", "value")])
+@app.callback(Output("table", "figure"), Input("species-dropdown", "value"))
 def update_table(selected_value):
     iris_df = iris[selected_value]
     return go.Figure(

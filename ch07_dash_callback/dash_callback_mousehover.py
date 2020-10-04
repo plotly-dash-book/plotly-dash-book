@@ -32,7 +32,7 @@ app.layout = html.Div(
 
 # ➌ コールバック
 @app.callback(
-    Output("hoverdata-p", "children"), [Input("gapminder-g", "hoverData")]  # ➏
+    Output("hoverdata-p", "children"), Input("gapminder-g", "hoverData")  # ➏
 )  # ➐
 def show_hover_data(hoverData):  # ➑
     return json.dumps(hoverData)  # ➒

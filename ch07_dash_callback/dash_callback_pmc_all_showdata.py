@@ -14,7 +14,7 @@ app.layout = html.Div(
     [
         html.Button("PUSH ME", id="add_drop"),  # 新たなドロップダウンを追加するボタン（➋）
         html.Div(id="show_drop", children=[]),  # ドロップダウンを追加するDiv（➌）
-        html.Div(id="my_text"),  # テキストを描画するDiv（➍）
+        html.P(id="my_text"),  # テキストを描画するP（➍）
     ],
     style={"width": "80%", "margin": "2% auto"},
 )

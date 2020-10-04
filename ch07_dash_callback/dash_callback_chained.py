@@ -42,13 +42,11 @@ app.layout = html.Div(
 
 # ➋ コールバック1
 @app.callback(
-    [
-        Output("show-selector", "options"),  # RadioItems（id="show-title"）の選択肢
-        Output("show-selector", "value"),  # RadioItems（id="show-title"）の値
-        Output("head-title", "children"),  # H1（id="head-title"）の表示する文字
-        Output("selector-title", "children"),  # P（id="selector-title"）の表示する文字
-    ],
-    [Input("graph-drop", "value")],  # Dropdown（id="graph-drop"）で選択された値
+    Output("show-selector", "options"),  # RadioItems（id="show-title"）の選択肢
+    Output("show-selector", "value"),  # RadioItems（id="show-title"）の値
+    Output("head-title", "children"),  # H1（id="head-title"）の表示する文字
+    Output("selector-title", "children"),  # P（id="selector-title"）の表示する文字
+    Input("graph-drop", "value"),  # Dropdown（id="graph-drop"）で選択された値
 )
 def update_selector(graph_type):
     if graph_type == "bar":
@@ -80,8 +78,8 @@ def update_selector(graph_type):
 # ➌ コールバック2
 @app.callback(
     Output("show-graph", "figure"),  #
-    [Input("show-selector", "value")],
-    [State("graph-drop", "value")],
+    Input("show-selector", "value"),
+    State("graph-drop", "value"),
 )
 def update_graph(selected_value, graph_type):
     if graph_type == "bar":
