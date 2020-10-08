@@ -27,7 +27,7 @@ cyto_compo = cyto.Cytoscape(
         {"selector": "node",
          "style": {"label": "data(name)",  # ラベル文字列
                    "color": "white",  # 文字色を白
-                   "text-background-color": "green",  # 背景色を黒
+                   "text-background-color": "green",  # 背景色を緑
                    "text-background-opacity": 1,  # 完全に不透明
                    "text-halign": "right",  # ノードの右側
                    "text-valign": "center",}}, # ノードの中央
