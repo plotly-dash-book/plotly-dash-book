@@ -5,7 +5,7 @@ import dash_html_components as html
 app = dash.Dash(__name__)
 
 # ノードを10個定義
-nodes = [{"data": {"id": x, "label": f"{x}"}} for x in range(0, 10)]
+nodes = [{"data": {"id": x, "label": f"{x}"}} for x in range(10)]
 
 # エッジを定義 (木構造)
 edges = [

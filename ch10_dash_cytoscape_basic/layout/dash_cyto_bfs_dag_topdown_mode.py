@@ -4,8 +4,8 @@ import dash_html_components as html
 
 app = dash.Dash(__name__)
 
-# ノードを10個定義
-nodes = [{"data": {"id": x} for x in range(0, 10)]
+# ノードを9個定義
+nodes = [{"data": {"id": x, "label": f"{x}"}} for x in range(9)]
 
 # エッジを定義 (DAG)
 edges = [
@@ -18,8 +18,6 @@ edges = [
     {"data": {"source": 6, "target": 7}},
     {"data": {"source": 4, "target": 7}},
     {"data": {"source": 4, "target": 8}},
-    {"data": {"source": 2, "target": 1}},
-    {"data": {"source": 9, "target": 7}},
 ]
 elements = nodes + edges
 
@@ -29,9 +27,7 @@ cyto_compo = cyto.Cytoscape(
     layout={"name": "breadthfirst"},
     elements=elements,
     stylesheet=[
-        {
-            "selector": "node",
-            "style": {"content": "data(id)"}},
+        {"selector": "node", "style": {"content": "data(label)"}},
         {
             "selector": "edge",
             "style": {"mid-target-arrow-shape": "vee", "arrow-scale": 3},

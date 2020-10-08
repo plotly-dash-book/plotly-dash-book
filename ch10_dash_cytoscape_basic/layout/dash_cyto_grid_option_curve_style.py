@@ -1,4 +1,3 @@
-import math
 import dash
 import dash_cytoscape as cyto
 import dash_html_components as html
@@ -31,20 +30,19 @@ edges = [
 ]
 elements = nodes + edges
 
-cyto_div = cyto.Cytoscape(
+cyto_compo = cyto.Cytoscape(
     id="dash_cyto_layout",
     style={"width": "400px", "height": "400px"},
-    # ❶ concentricのオプションを指定
-    layout={
-        "name": "concentric",
-        "radius": 250,  # 半径の大きさ
-        "startAngle": math.pi,  # ❶ 開始位置はπrad（9時の方向）
-        "sweep": 0.5 * math.pi,  # ❷ 開始位置と終了位置の角度は0.5πrad（90°）
-    },
+    layout={"name": "grid", "rows": 3, "columns": 6},
     elements=elements,
+    stylesheet=[
+        {"selector": "node", "style": {"content": "data(label)"}},
+        # エッジのカーブのスタイルを曲線にする
+        {"selector": "edge", "style": {"curve-style": "unbundled-bezier"}},
+    ],
 )
 
-app.layout = html.Div([cyto_div])
+app.layout = html.Div([cyto_compo])
 
 if __name__ == "__main__":
     app.run_server(debug=True)
