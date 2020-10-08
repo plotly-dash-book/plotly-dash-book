@@ -27,7 +27,7 @@ cyto_compo = cyto.Cytoscape(
             "selector": "node",
             "style": {
                 "background-opacity": 0.6,  # ❶ 固定値で背景の不透明度を指定
-                "background-color": "data(color)",  # ❷ data辞書の値を使って指定
+                "background-color": "data(color)",  # ❷ データ辞書の値を使って指定
             },
         },
     ],

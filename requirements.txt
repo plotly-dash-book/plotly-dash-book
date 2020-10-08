@@ -9,5 +9,5 @@ dash-bio==0.4.8
 dash-canvas==0.1.0
 dash-auth==1.4.1
 dash-cytoscape==0.2.0
-networkx==2.4
+networkx==2.5
 jupyter-dash==0.3.1
