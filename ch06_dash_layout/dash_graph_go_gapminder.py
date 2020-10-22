@@ -16,7 +16,8 @@ for c in gapminder2007.continent.unique():
             name=c,
             mode="markers",
             marker={
-                "size": gapminder2007.loc[gapminder2007["continent"] == c]["lifeExp"] / 2
+                "size": gapminder2007.loc[gapminder2007["continent"] == c, "lifeExp"]
+                / 2
             },
             text=gapminder2007.loc[gapminder2007["continent"] == c, "country"],
         )
