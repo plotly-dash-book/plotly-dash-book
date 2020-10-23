@@ -41,7 +41,8 @@ app.layout = html.Div(
 
 @app.callback(
     Output("remove-background", "src"),
-    [Input("first-image", "json_data"), Input("first-image", "image_content")],
+    Input("first-image", "json_data"),
+    Input("first-image", "image_content"),
 )
 def remove_background(json_data, image):
     if json_data:

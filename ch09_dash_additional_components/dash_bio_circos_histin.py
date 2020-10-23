@@ -39,7 +39,7 @@ app.layout = html.Div(
 )
 
 # ➌ 選択されたグラフのtracksを返り値とするコールバック
-@app.callback(Output("circos", "tracks"), [Input("radio-value", "value")])
+@app.callback(Output("circos", "tracks"), Input("radio-value", "value"))
 def update_graph(selected_value):
     if selected_value == "ヒストグラム外側表示":
         return [

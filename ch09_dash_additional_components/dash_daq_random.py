@@ -48,7 +48,7 @@ app.layout = html.Div(
 )
 
 # ➋ コールバック オンとオフを管理するコールバック
-@app.callback(Output("daq-interval", "disabled"), [Input("daq-powerbutton", "on")])
+@app.callback(Output("daq-interval", "disabled"), Input("daq-powerbutton", "on"))
 def guage_witch(buttonon):
     if buttonon:
         return False
@@ -58,13 +58,11 @@ def guage_witch(buttonon):
 
 # ➌ コールバック 計器にランダムな値を返すコールバック
 @app.callback(
-    [
-        Output("guage1", "value"),
-        Output("guage2", "value"),
-        Output("guage3", "value"),
-        Output("guage4", "value"),
-    ],
-    [Input("daq-interval", "n_intervals")],
+    Output("guage1", "value"),
+    Output("guage2", "value"),
+    Output("guage3", "value"),
+    Output("guage4", "value"),
+    Input("daq-interval", "n_intervals"),
 )
 def update_guages(n_intervals):
     return list(np.random.uniform(0, 10, 4))

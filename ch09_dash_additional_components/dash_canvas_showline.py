@@ -55,13 +55,13 @@ app.layout = html.Div(
 )
 
 # ➊ 線色を更新するコールバック
-@app.callback(Output("first-image", "lineColor"), [Input("color-radio", "value")])
+@app.callback(Output("first-image", "lineColor"), Input("color-radio", "value"))
 def update_color(selected_color):
     return selected_color
 
 
 # ➋ 長方形のデータのみをテーブルに表示するコールバック
-@app.callback(Output("showTable", "data"), [Input("first-image", "json_data")])
+@app.callback(Output("showTable", "data"), Input("first-image", "json_data"))
 def showLine(json_data):
 
     if not json_data:

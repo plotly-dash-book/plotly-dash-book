@@ -9,7 +9,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         html.H1(id="callback-output"),
-        # valueに初期値0を設定
+        # 引数updatemodeに"drag"を渡し,動作を即座に反映するように設定
         dcc.Slider(id="callback-input", value=0, updatemode="drag"),
     ],
     style={"textAlign": "center", "width": "60%", "margin": "auto"},
