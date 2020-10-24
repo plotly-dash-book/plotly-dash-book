@@ -8,13 +8,11 @@ app.layout = html.Div(
     [
         dcc.Slider(
             id="thisSlider",
-            # ➊ 10のべき乗の目盛作成
-            marks={i: f"{10 ** i}" for i in range(6)},
             max=5,  # 最大値
             value=2,  # 初期値
             step=0.01,  # 最小目盛のステップ
             tooltip={"always_visible": False, "placement": "bottom"},  # ツールチップを下側に表示
-            updatemode="drag",  # ➋ ハンドルへのスライダの反応
+            updatemode="drag",  # ➊ ハンドルへのスライダの反応
         ),
         html.P(
             id="pow-output", style={"marginTop": "5%", "fontSize": 30}
@@ -23,13 +21,12 @@ app.layout = html.Div(
     style={"width": "80%", "margin": "5% auto"},
 )
 
-# ➌ コールバック
+# ➋ コールバック
 @app.callback(
     dash.dependencies.Output("pow-output", "children"),
     [dash.dependencies.Input("thisSlider", "value")],
 )
 def display_value(value):
-    # ➍
     return f"数値: {value} | 10のべき乗: {10 ** value: .3f}"
 
 
