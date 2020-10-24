@@ -41,12 +41,12 @@ def update_graph(n_intervals):
     now = pd.Timestamp(datetime.datetime.now()).round("s")
     past = now - datetime.timedelta(seconds=120)
 
-    dff = df.loc[past:now]
+    plot_df = df.loc[past:now]
 
     # ➎ タイトルとグラフを戻り値とする
     return (
         f"live-update-chart: {now} / n_intervals: {n_intervals}",
-        {"data": [go.Scatter(x=dff.index, y=dff["price"])]},
+        {"data": [go.Scatter(x=plot_df.index, y=plot_df["price"])]},
     )
 
 
