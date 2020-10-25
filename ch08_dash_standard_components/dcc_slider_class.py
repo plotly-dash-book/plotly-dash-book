@@ -6,14 +6,14 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        # ➊ スライダの作成
+        # スライダの作成
         dcc.Slider(
             id="myslider",
             min=-10,  # 最小値
             max=100,  # 最大値
             step=1,  # 目盛
             value=50,  # 初期値
-            # ➋ スライダの目盛の作成。数値に対して割り当てる。
+            # ➊ スライダの目盛の作成。数値に対して割り当てる。
             marks={
                 -10: {"label": "-10度", "style": {"color": "blue", "fontSize": 30},},
                 0: {"label": "0", "style": {"fontSize": 40}},
