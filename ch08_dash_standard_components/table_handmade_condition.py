@@ -20,9 +20,9 @@ app.layout = dash_table.DataTable(
     ],
     # ➊ 列全体のスタイル
     style_cell_conditional=[
-        {  # ➎ 。条件は辞書で渡す
+        {  # ➍ 条件は辞書で渡す
             "if": {"column_id": "number"},
-            # ➏ 条件を満たした場合の装飾
+            # ➎ 条件を満たした場合の装飾
             "fontSize": 24,
             "backgroundColor": "#FFEEE4",
         }
@@ -35,7 +35,7 @@ app.layout = dash_table.DataTable(
     # ➌ データ部分のスタイル
     style_data_conditional=[
         {"if": {"row_index": "odd"}, "backgroundColor": "#FBFFB9"},
-        # ➐ fileter_queryを利用する場合、条件を""で囲って渡す。
+        # ➏ fileter_queryを利用する場合、条件を""で囲って渡す
         {
             "if": {"column_id": "tsuyu-iri", "filter_query": "{number} > 3"},
             "backgroundColor": "#41D3BD",
