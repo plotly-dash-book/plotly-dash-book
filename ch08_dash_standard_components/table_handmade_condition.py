@@ -17,7 +17,8 @@ app.layout = dash_table.DataTable(
         {"number": 3, "area": "shikoku", "tsuyu-iri": "6/26"},
         {"number": 4, "area": "chugoku", "tsuyu-iri": "6/26"},
         {"number": 5, "area": "kinki", "tsuyu-iri": "6/26"},
-    ],  # ➊ 列全体のスタイル
+    ],
+    # ➊ 列全体のスタイル
     style_cell_conditional=[
         {  # ➎ 。条件は辞書で渡す
             "if": {"column_id": "number"},
@@ -25,11 +26,13 @@ app.layout = dash_table.DataTable(
             "fontSize": 24,
             "backgroundColor": "#FFEEE4",
         }
-    ],  # ➋ ヘッダーのスタイル
+    ],
+    # ➋ ヘッダーのスタイル
     style_header_conditional=[
         {"if": {"column_id": "area"}, "textAlign": "center", "width": 150},
         {"if": {"column_id": "tsuyu-iri"}, "backgroundColor": "#FBFFB9"},
-    ],  # ➌ データ部分のスタイル
+    ],
+    # ➌ データ部分のスタイル
     style_data_conditional=[
         {"if": {"row_index": "odd"}, "backgroundColor": "#FBFFB9"},
         # ➐ fileter_queryを利用する場合、条件を""で囲って渡す。
