@@ -11,6 +11,7 @@ ENV JUPYTER_CONFIG=/root/.jupyter/jupyter_notebook_config.py
 RUN jupyter notebook --generate-config && \
     echo "c.NotebookApp.ip = '0.0.0.0'" >> ${JUPYTER_CONFIG} && \
     echo "c.NotebookApp.open_browser = False" >> ${JUPYTER_CONFIG} && \
-    echo "c.NotebookApp.allow_root = True" >> ${JUPYTER_CONFIG}
+    echo "c.NotebookApp.allow_root = True" >> ${JUPYTER_CONFIG} && \
+    echo "c.NotebookApp.notebook_dir = '/work'"
 
 WORKDIR /work
