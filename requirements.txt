@@ -11,3 +11,5 @@ dash-auth==1.4.1
 dash-cytoscape==0.2.0
 networkx==2.5
 jupyter-dash==0.3.1
+psutil
+requests
