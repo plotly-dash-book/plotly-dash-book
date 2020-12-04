@@ -32,5 +32,5 @@ cyto_compo = cyto.Cytoscape(
 app.layout = html.Div([cyto_compo])
 
 if __name__ == "__main__":
-    # サーバーの起動
+    # サーバの起動
     app.run_server(debug=True)
