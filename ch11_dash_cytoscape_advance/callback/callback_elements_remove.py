@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output, State
 app = dash.Dash(__name__)
 
 # ノードを10個定義
-default_nodes = [{"data": {"id": x}} for x in range(0, 10)]
+default_nodes = [{"data": {"id": x}} for x in range(10)]
 
 # エッジを定義 (木構造)
 default_edges = [
