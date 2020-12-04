@@ -63,5 +63,5 @@ def show_tapped_node(node_element_dict):
 
 
 if __name__ == "__main__":
-    # サーバーの起動
+    # サーバの起動
     app.run_server(debug=True)
