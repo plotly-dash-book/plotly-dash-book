@@ -2,7 +2,30 @@
 
 ―Plotly/Dashによるデータ可視化とWebアプリ構築―
 
-[![](https://www.asakura.co.jp/goods_img/117651.jpg)](https://www.asakura.co.jp/books/isbn/978-4-254-12258-9/)
+本リポジトリは、書籍「Pythonインタラクティブ・データビジュアライゼーション入門 -Plotly/Dashによるデータ可視化とWebアプリ構築-」のサポートサイトとなります。
+
+本書のハッシュタグは #plotlydashbook となります。よろしくお願いいたします。
+<br>
+     
+<img src="https://www.asakura.co.jp/goods_img/117651.jpg" width=200px>
+
+## 本書の概要
+
+Webサイトで公開できる対話的・探索的（読み手が自由に動かせる）可視化をPythonで実践します．データ解析に便利なPlotly，アプリ化のためのユーザインタフェースを作成できるDash，ネットワーク図に強いDash Cytoscapeを具体的に解説しています。
+
+目次    
+**0章** **はじめに**    
+**1章** **Plotly Express**     
+**2章** **plotly.py入門**     
+**3章** **plotly.pyの様々なグラフ**     
+**4章** **plotly.py応用**    
+**5章** **Dash入門**     
+**6章** **Dashレイアウト**     
+**7章** **Dashコールバック**     
+**8章** **Dashの標準コンポーネント**     
+**9章** **Dashの追加コンポーネント**     
+**10章** **Dash Cytoscape入門**     
+**11章** **Dash Cytoscape応用**     
 
 ## サンプルコード
 
@@ -23,6 +46,17 @@
 4.3 オブジェクトの描画 | [![](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_03_draw.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_03_draw.ipynb)
 4.4 インタラクティブな可視化 | [![](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_04_interactive.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_04_interactive.ipynb)
 4.5 グラフを画像ファイルに出力 | [![](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_05_export.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plotly-dash-book/plotly-dash-book/blob/master/ch04_plotly_advance/04_05_export.ipynb)
+
+- Dash, Dash Cytoscapeのコードは各リポジトリにあります。
+## 正誤表
+
+書籍の正誤表は[リンク先](https://github.com/plotly-dash-book/plotly-dash-book/blob/master/SEIGO.md)を参照ください。
+
+本書の誤記の連絡は、お手数ですが本リポジトリの[Issues](https://github.com/plotly-dash-book/plotly-dash-book/issues)に投稿をお願いいたします。
+
+## FAQ 
+
+書籍の質問は[Issues](https://github.com/plotly-dash-book/plotly-dash-book/issues)で受け付けております。
 
 ## ライセンス(データ)
 
