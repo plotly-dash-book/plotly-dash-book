@@ -27,6 +27,8 @@ Webサイトで公開できる対話的・探索的（読み手が自由に動�
 **10章** **Dash Cytoscape入門**     
 **11章** **Dash Cytoscape応用**     
 
+詳細な目次は[出版社のサイト](http://www.asakura.co.jp/books/isbn/978-4-254-12258-9/)にあります。
+
 ## サンプルコード
 
 見出し|nbviewer|Colab
@@ -57,6 +59,17 @@ Webサイトで公開できる対話的・探索的（読み手が自由に動�
 ## FAQ 
 
 書籍の質問は[Issues](https://github.com/plotly-dash-book/plotly-dash-book/issues)で受け付けております。
+
+FAQは[リンク先](https://github.com/plotly-dash-book/plotly-dash-book/blob/master/FAQ.md)にあります。
+
+## 書籍の詳細・レビュー
+
+書籍の紹介記事です。
+
+- [【読書速報】『Python インタラクティブ・データビジュアライゼーション入門 ―Plotly/Dashによるデータ可視化とWebアプリ構築―』の感想](https://www.kanzennirikaisita.com/posts/4254122586)
+- [「Python インタラクティブ・データビジュアライゼーション入門」を読んでみました](https://hr-sano.net/blog/2020/12/30/plotlydashbook/)
+- [PlotlyとDashの本を共著で執筆しました（事後報告）](https://www.mazarimono.net/entry/2020/12/10/python-interactive-data-visialization)
+
 
 ## ライセンス(データ)
 
