@@ -71,6 +71,10 @@ FAQは[リンク先](https://github.com/plotly-dash-book/plotly-dash-book/blob/m
 - [PlotlyとDashの本を共著で執筆しました（事後報告）](https://www.mazarimono.net/entry/2020/12/10/python-interactive-data-visialization)
 
 
+## ライセンス(ソースコード)
+
+本書のソースコードは [MIT](https://github.com/plotly-dash-book/plotly-dash-book/blob/main/LICENSE) です。Webサイトやイベントなどで使用する場合には、Webサイトや配布資料に著作権表示を記載してください。
+
 ## ライセンス(データ)
 
 ### ch08_dash_standard_components
